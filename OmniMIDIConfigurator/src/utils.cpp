@@ -1,6 +1,6 @@
 #include "utils.h"
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
 #include <dlfcn.h>
 #elif defined(_WIN32)
 #include <windows.h>
@@ -28,7 +28,7 @@ typedef char* (*fluid_version_str)();
 
 fs::path Utils::GetConfigFolder() {
     fs::path path;
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
     char *env;
     env = std::getenv("XDG_CONFIG_HOME");
     if (env == NULL) {
@@ -51,7 +51,7 @@ fs::path Utils::GetConfigFolder() {
 }
 
 void Utils::InitializeKdmapi() {
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
     void* handle;
     bool (*InitializeKDMAPIStream)();
     bool (*TerminateKDMAPIStream)();
@@ -123,7 +123,7 @@ SynthVersions Utils::getSynthVersions() {
     SynthVersions v;
     int tmp;
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
     void* handle;
     int (*BASS_GetVersion)();
     int (*BASS_MIDI_GetVersion)();
