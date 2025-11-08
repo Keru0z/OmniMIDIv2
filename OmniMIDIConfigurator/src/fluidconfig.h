@@ -4,12 +4,9 @@
 #include "omconfig.h"
 
 static std::map<std::string, std::string> audioDrivers  = {
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
     {"pipewire", "PipeWire"},
     {"alsa", "ALSA"},
-    {"oss", "OSS"},
-#if defined(__FreeBSD__)
-    {"pipewire", "PipeWire"},
     {"oss", "OSS"},
 #elif defined(_WIN32)
     {"wasapi", "WASAPI"},
