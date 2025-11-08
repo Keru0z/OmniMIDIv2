@@ -405,6 +405,9 @@ bool OMShared::Funcs::GetFolderPath(const FIDs FolderID, char *path,
     case LibGeneric:
         envPath = "/usr/lib";
         break;
+    case LibLocal:
+        envPath = "/usr/local/lib";
+        break;
     case Libi386:
         envPath = "/usr/lib32";
         break;
