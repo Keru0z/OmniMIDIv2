@@ -9,7 +9,7 @@ BASSMIDISettings::BASSMIDISettings(QWidget *parent, BASSConfig *config)
     , m_cfg(config)
 {
     ui->setupUi(this);
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
     ui->windowsAudio->setVisible(false);
     ui->windowsAudio->hide();
 #elif defined(_WIN32)
@@ -112,7 +112,7 @@ void BASSMIDISettings::loadSettings() {
 
     toggleMtOptions();
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
     ui->audioBuffer->setValue(m_cfg->AudioBuf);
     ui->bufPeriod->setValue(m_cfg->BufPeriod);
 #elif defined(_WIN32)
@@ -162,7 +162,7 @@ void BASSMIDISettings::storeSettings() {
     m_cfg->MonoRendering = ui->monoRendering->isChecked();
     m_cfg->DisableEffects = ui->disableEffects->isChecked();
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
     m_cfg->BufPeriod = ui->bufPeriod->value();
     m_cfg->AudioBuf = ui->audioBuffer->value();
 #elif defined(_WIN32)
