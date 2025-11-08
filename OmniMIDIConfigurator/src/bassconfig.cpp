@@ -25,7 +25,7 @@ void BASSConfig::load() {
         InstanceEvBufSize = m_cfg.value("InstanceEvBufSize", InstanceEvBufSize);
         AudioEngine = m_cfg.value("AudioEngine", AudioEngine);
         AudioBuf = m_cfg.value("AudioBuf", AudioBuf);
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
         BufPeriod = m_cfg.value("BufPeriod", BufPeriod);
 #elif defined(_WIN32)
         StreamDirectFeed = m_cfg.value("StreamDirectFeed", StreamDirectFeed);
@@ -63,7 +63,7 @@ void BASSConfig::store() {
     m_cfg["InstanceEvBufSize"] = InstanceEvBufSize;
     m_cfg["AudioEngine"] = AudioEngine;
     m_cfg["AudioBuf"] = AudioBuf;
-#if defined(__linux__)
+#if defined(__linux__) || defined(__FreeBSD__)
     m_cfg["BufPeriod"] = BufPeriod;
 #elif defined(_WIN32)
     m_cfg["StreamDirectFeed"] = StreamDirectFeed;
