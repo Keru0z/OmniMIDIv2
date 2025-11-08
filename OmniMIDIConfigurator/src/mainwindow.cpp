@@ -76,6 +76,8 @@ MainWindow::MainWindow(QWidget *parent)
                                                  tr("DLL Files (*.dll)"));
 #elif __linux__
                                                  tr("Shared Library Files (*.so)"));
+#elif __FreeBSD__
+                                                 tr("Shared Library Files (*.so)"));
 #elif __APPLE__
                                                  tr("Shared Library Files (*.dylib)"));
 #endif
