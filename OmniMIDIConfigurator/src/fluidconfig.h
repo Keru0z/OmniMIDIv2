@@ -8,6 +8,9 @@ static std::map<std::string, std::string> audioDrivers  = {
     {"pipewire", "PipeWire"},
     {"alsa", "ALSA"},
     {"oss", "OSS"},
+#if defined(__FreeBSD__)
+    {"pipewire", "PipeWire"},
+    {"oss", "OSS"},
 #elif defined(_WIN32)
     {"wasapi", "WASAPI"},
     {"dsound", "DirectSound"},
