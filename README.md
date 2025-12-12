@@ -21,10 +21,10 @@ Here's what available with OmniMIDI v2 so far.
    - 🔽 OS support
       - ✔️ Windows
       - ✔️ Linux
-      - ⚠️ BSD
+      - ⚠️ FreeBSD
       - ❌ macOS
    - 🔽 Synth modules
-      - ✔️ [BASSMIDI*](https://www.un4seen.com/bass.html) *(Requires extra config in xmake)*
+      - ✔️ [BASSMIDI*](https://www.un4seen.com/bass.html) *(Requires extra config in xmake)* & *(No BASSMIDI support for BSD systems)*
       - ✔️ [FluidSynth](https://github.com/FluidSynth/fluidsynth)
       - ✔️ [XSynth](https://github.com/arduano/xsynth)
       - ✔️ External plugin system
